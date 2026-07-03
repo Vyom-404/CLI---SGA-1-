@@ -1,0 +1,92 @@
+FILE ACCESS AND I/O INVESTIGATION REPORT
+========================================
+
+1. Open Files Identified
+lrwx------ 1 vyomg20082005 vyomg20082005 64 Jul  3 05:09 /proc/727/fd/0 -> /dev/pts/2
+l-wx------ 1 vyomg20082005 vyomg20082005 64 Jul  3 05:09 /proc/727/fd/1 -> /home/vyomg20082005/Graded_Lab_Assignment/Question4/IO_Investigation_Report.txt
+lrwx------ 1 vyomg20082005 vyomg20082005 64 Jul  3 05:09 /proc/727/fd/2 -> /dev/pts/2
+lrwx------ 1 vyomg20082005 vyomg20082005 64 Jul  3 07:13 /proc/727/fd/10 -> /dev/pts/2
+lrwx------ 1 vyomg20082005 vyomg20082005 64 Jul  3 05:09 /proc/727/fd/255 -> /dev/pts/2
+
+2. File Descriptor Observations
+total 0
+lrwx------ 1 vyomg20082005 vyomg20082005 64 Jul  3 05:09 0 -> /dev/pts/2
+l-wx------ 1 vyomg20082005 vyomg20082005 64 Jul  3 05:09 1 -> /home/vyomg20082005/Graded_Lab_Assignment/Question4/IO_Investigation_Report.txt
+lrwx------ 1 vyomg20082005 vyomg20082005 64 Jul  3 07:13 10 -> /dev/pts/2
+lrwx------ 1 vyomg20082005 vyomg20082005 64 Jul  3 05:09 2 -> /dev/pts/2
+lrwx------ 1 vyomg20082005 vyomg20082005 64 Jul  3 05:09 255 -> /dev/pts/2
+
+3. Output Redirection Result
+Application log test successful
+
+4. Error Redirection Result
+ls: cannot access '/nonexistent_directory': No such file or directory
+
+5. Combined Output and Error Redirection Result
+ls: cannot access '/nonexistent_directory': No such file or directory
+/tmp:
+cloudcode-temp273i1r
+cloudcode-tempIa96Xk
+cloudcode-tempuT2CLF
+cloudcode-tempvzyKWU
+code-oss-vm-session-state.json
+datacloud-mcp-notebooks-codeossforcloudshell.sock
+datacloud-mcp-visualization-codeossforcloudshell.sock
+gemini
+minikube_delete_39c45057760b59a50bb01aa930a1bb279bff2baa_0.log
+node-compile-cache
+restore_bashrc.lock
+restore_profile.lock
+tmp.b2gyAZL28Z
+tmp.Fl4GIvBtOx
+tmp.jUwh3G6Ng2
+tmp.Kdy6J0M1WA
+tmp.MN8L8zSDk9
+tmp.PsS2mq8d4V
+tmp.UEJQ7j5vzI
+tmp.YGNjqw1CTO
+tmux-1000
+vscode-git-3ec284de36.sock
+vscode-git-4c12a79a09.sock
+vscode-git-7e792aaabd.sock
+vscode-git-82a11d4739.sock
+vscode-git-9eb3097190.sock
+vscode-ipc-0393897a-25cb-4244-8368-a2feb0198bc0.sock
+vscode-ipc-0b60173d-1f88-4e5d-bfaa-677124f9aef4.sock
+vscode-ipc-1fa14028-0d9a-4d1d-ada5-1291ba17ee72.sock
+vscode-ipc-56cf22d0-f256-4476-916b-30bd8cb8c478.sock
+vscode-ipc-6191e597-21e3-4995-aa0f-3ac711d46a35.sock
+vscode-ipc-660f859a-771c-405f-b043-bce760bd0143.sock
+vscode-ipc-ba794f45-3e64-434e-9df5-08f1f95de3ab.sock
+vscode-ipc-c2b498f6-932f-450c-941e-539cd27a8780.sock
+vscode-ipc-c34f63a3-e67e-478b-b1f1-4863528e1733.sock
+vscode-ipc-ea4e97a8-865a-4ff9-b8fe-f159bf9b7903.sock
+vscode-skaffold-events-logs
+vscode-typescript1000
+
+6. Resource Limits Observed
+real-time non-blocking time  (microseconds, -R) unlimited
+core file size              (blocks, -c) unlimited
+data seg size               (kbytes, -d) unlimited
+scheduling priority                 (-e) 0
+file size                   (blocks, -f) unlimited
+pending signals                     (-i) 31541
+max locked memory           (kbytes, -l) 8192
+max memory size             (kbytes, -m) unlimited
+open files                          (-n) 1024
+pipe size                (512 bytes, -p) 8
+POSIX message queues         (bytes, -q) 819200
+real-time priority                  (-r) 0
+stack size                  (kbytes, -s) 8192
+cpu time                   (seconds, -t) unlimited
+max user processes                  (-u) unlimited
+virtual memory              (kbytes, -v) unlimited
+file locks                          (-x) unlimited
+
+7. Explanation of How Linux Manages File I/O
+Linux represents open files using file descriptors.
+File descriptor 0 represents standard input, 1 represents standard output, and 2 represents standard error.
+Output redirection sends standard output to a file using the > operator.
+Error redirection sends standard error to a file using the 2> operator.
+The 2>&1 expression redirects standard error to the same destination as standard output.
+Linux applies resource limits to control resources such as open files, processes, memory, and CPU usage.
