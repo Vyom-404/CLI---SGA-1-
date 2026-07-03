@@ -1,0 +1,39 @@
+FILE SYSTEM AND LINK ANALYSIS REPORT
+====================================
+
+1. Inode Numbers of Remaining Files
+total 12
+131768 -rw-rw-r-- 1 vyomg20082005 vyomg20082005   35 Jul  3 06:44 hardlink.txt
+131770 -rw-rw-r-- 1 vyomg20082005 vyomg20082005  111 Jul  3 06:53 Link_Analysis_Report.txt
+131767 drwxrwxr-x 2 vyomg20082005 vyomg20082005 4096 Jul  3 06:44 screenshots
+131769 lrwxrwxrwx 1 vyomg20082005 vyomg20082005   12 Jul  3 06:46 symlink.txt -> original.txt
+
+2. Comparison Between Hard Link and Symbolic Link
+A hard link shares the same inode as the original file.
+A symbolic link has a different inode and stores a path to the original file.
+
+3. Effect of Deleting the Original File
+The hard link remains accessible because it references the same inode and file data.
+The symbolic link becomes broken because its target path no longer exists.
+
+4. Metadata Collected Using Linux Utilities
+  File: hardlink.txt
+  Size: 35        	Blocks: 8          IO Block: 4096   regular file
+Device: 8,17	Inode: 131768      Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/vyomg20082005)   Gid: ( 1000/vyomg20082005)
+Access: 2026-07-03 06:44:48.385661432 +0000
+Modify: 2026-07-03 06:44:48.386661508 +0000
+Change: 2026-07-03 06:50:06.505778691 +0000
+ Birth: 2026-07-03 06:44:48.385661432 +0000
+  File: symlink.txt -> original.txt
+  Size: 12        	Blocks: 0          IO Block: 4096   symbolic link
+Device: 8,17	Inode: 131769      Links: 1
+Access: (0777/lrwxrwxrwx)  Uid: ( 1000/vyomg20082005)   Gid: ( 1000/vyomg20082005)
+Access: 2026-07-03 06:46:49.063810592 +0000
+Modify: 2026-07-03 06:46:49.063810592 +0000
+Change: 2026-07-03 06:46:49.063810592 +0000
+ Birth: 2026-07-03 06:46:49.063810592 +0000
+
+5. Conclusions Drawn from the Experiment
+Hard links remain usable after the original filename is deleted.
+Symbolic links depend on the target path and break when the original target is deleted.
