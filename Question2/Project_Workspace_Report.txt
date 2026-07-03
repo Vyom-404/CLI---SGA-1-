@@ -1,0 +1,33 @@
+SECURE PROJECT WORKSPACE REPORT
+===============================
+
+1. Directory Structure Created
+project_workspace
+project_workspace/data
+project_workspace/documents
+project_workspace/scripts
+
+2. File Permissions Before Modification
+-rw-rw-r-- 1 vyomg20082005 vyomg20082005 0 Jul 3 06:24 project_workspace/documents/project_notes.txt
+
+2. Current File Permissions After Modification
+-rw------- 1 vyomg20082005 vyomg20082005 0 Jul  3 06:24 project_workspace/documents/project_notes.txt
+
+3. Ownership Details
+  File: project_workspace/documents/project_notes.txt
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: 8,17	Inode: 131701      Links: 1
+Access: (0600/-rw-------)  Uid: ( 1000/vyomg20082005)   Gid: ( 1000/vyomg20082005)
+Access: 2026-07-03 06:24:56.288282746 +0000
+Modify: 2026-07-03 06:24:56.288282746 +0000
+Change: 2026-07-03 06:26:32.082545325 +0000
+ Birth: 2026-07-03 06:24:56.288282746 +0000
+
+4. Umask Value Used
+0002
+
+5. Explanation of Permission Protection
+The project workspace uses restrictive Linux permissions to protect project data.
+Permission mode 600 allows only the file owner to read and write the protected file.
+Permission mode 700 on the workspace allows only the owner to read, write, and access the directory.
+These permissions reduce unauthorized access by group members and other users.
