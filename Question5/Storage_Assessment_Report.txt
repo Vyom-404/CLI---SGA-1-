@@ -1,0 +1,60 @@
+STORAGE HEALTH ASSESSMENT REPORT
+================================
+
+1. Available Storage Devices
+
+Storage devices were inspected using the lsblk command.
+The command displayed available block devices, their sizes,
+types, and mount points.
+
+2. Mounted File Systems
+
+Mounted file systems were inspected using the findmnt command.
+The output displayed mounted file systems, mount points,
+source devices, and file system types.
+
+3. Disk Usage Statistics
+
+Disk usage was inspected using the df -h command.
+The command displayed total size, used space, available space,
+usage percentage, and mount points in human-readable format.
+
+4. Inode Utilization
+
+Inode utilization was inspected using the df -i command.
+The output displayed total inodes, used inodes, free inodes,
+and inode usage percentages for mounted file systems.
+
+5. Storage Health Observations
+
+The storage environment was assessed by reviewing available
+devices, mounted file systems, disk space utilization, and
+inode utilization.
+
+File systems with high disk usage may experience insufficient
+space for application data, logs, temporary files, and updates.
+
+High inode utilization may prevent creation of new files even
+when free disk space is still available.
+
+Regular monitoring of both disk capacity and inode utilization
+is important for maintaining storage health.
+
+6. Recommendations for Improving Storage Utilization
+
+- Monitor disk usage regularly using df -h.
+- Monitor inode utilization regularly using df -i.
+- Remove unnecessary temporary files and obsolete logs.
+- Configure log rotation to prevent uncontrolled log growth.
+- Archive or delete unused application data.
+- Investigate file systems approaching high utilization.
+- Increase storage capacity when sustained usage becomes high.
+- Maintain sufficient free space for application growth.
+
+Conclusion
+
+The storage resources were assessed using standard Linux
+utilities. Available devices, mounted file systems, disk usage,
+and inode utilization were reviewed. Regular monitoring and
+cleanup are recommended to maintain efficient storage
+utilization and support reliable application deployment.
